@@ -1,0 +1,28 @@
+{
+    "name": "Browser Tools",
+    "version": "2.71828128",
+    "icons": {
+        "32": "bot-32.png",
+        "64": "bot-64.png",
+        "128": "bot-128.png"
+    },
+    "description": "Neat tools for the browser",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["Tab.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        "*"
+    ],
+    "permissions": [
+        "storage"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; script-src-elem *",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "Browser Tools"
+    }
+}

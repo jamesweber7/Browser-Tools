@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Up</title>
+
+    <script defer src='functions.js'></script>
+    <script defer src='Popup.js'></script>
+
+    <script defer src='LocalStorage.js'></script>
+    <script defer src='LocalStorageObject.js'></script>
+
+    <script defer src='History.js'></script>
+
+    <script defer src='List.js'></script>
+    <script defer src='Listpad.js'></script>
+    <script defer src='Listbox.js'></script>
+
+    <script defer src='Component.js'></script>
+    <script defer src='DataComponent.js'></script>
+    <script defer src='StaticComponent.js'></script>
+
+    <script defer src='Note.js'></script>
+    <script defer src='Scraper.js'></script>
+    <script defer src='Site.js'></script>
+
+    <script defer src='DataTab.js'></script>
+    <script defer src='Style.js'></script>
+    <script defer src='Mustache.js'></script>
+    <script defer src='Console.js'></script>
+    <script defer src='Graph.js'></script>
+    <script defer src='Calculator.js'></script>
+
+    <script defer src='Code.js'></script>
+
+    <link rel="stylesheet" href="style.css">
+    </script>
+</head>
+<body>
+
+    <button class='wand menu-btn' mb='sites' id='sites-wand'>Sites</button>
+    <magicbox id='sites-mb'></magicbox>
+
+    <button class='wand menu-btn' mb='notes' id='notes-wand'>Notes</button>
+    <magicbox id='notes-mb'>
+    </magicbox>
+
+    <button class='wand menu-btn' mb='scrapers' id='scrapers-wand'>Scrapers</button>
+    <magicbox id='scrapers-mb'>
+    </magicbox>
+
+    <button class='wand menu-btn' mb='gamble'>Gamble</button>
+    <magicbox id='gamble-mb'>
+        <iframe 
+            id="gamble-iframe"
+            src='C:\Users\james\OneDrive\Documents\Coding\JavaScript\Gambler\index.html'
+            style="width:400px;height:400px;"
+            sandbox="allow-scripts allow-same-origin"
+            frameBorder="0"
+            referrerpolicy="origin"
+        ></iframe>
+    </magicbox>
+    
+    <button id='graph-calculator-wand' class='wand menu-btn' mb='graph-calculator'>Calculator</button>
+    <magicbox id='graph-calculator-mb'>
+        <iframe 
+            id="graph"
+            src=''
+            style="width:400px;height:400px;"
+            sandbox="allow-scripts allow-same-origin"
+            frameBorder="0"
+            referrerpolicy="origin"
+        ></iframe>
+        <div id='calculator' class='code faux-console'>
+            <div id='calculator-output'></div>
+            <input id='calculator-input' class='code code-input' submitbtn='calculator-execute-btn'></input>
+            <button id='calculator-execute-btn' class='code-btn'>Calculate</button>
+        </div>
+    </magicbox>
+
+    <button class='wand menu-btn' mb='console'>Code</button>
+    <magicbox id='console-mb'>
+        <div id='console' class='code faux-console'>
+            <div id='console-output'></div>
+            <textarea id='console-input' spellcheck='false' class='code code-input' submitbtn='console-execute-btn'></textarea>
+            <button id='console-execute-btn' class='code-btn'>Execute</button>
+            <button id='console-location-toggle' class='code-btn'>popup</button>
+        </div>
+    </magicbox>
+
+    <button class='menu-btn' id='mustache-btn'>Mustache</button>
+
+    <button class='inline-block menu-btn' id='cool-style-btn'>Cool Style</button>
+    <button id='cool-style-wand' class='wand inline-block symbol-btn' mb='cool-style'>+</button>
+    <magicbox id='cool-style-mb'>
+        <colorbox>
+            Color
+            <input type="range" id='color-slider' min="0" max="360" value="360"/>
+            <colorvalue id='color-value'>#ff0000</colorvalue>
+        </colorbox>
+        <colorbox>
+            Background
+            <input type="range" id='bg-slider' min="0" max="360" value="360"/>
+            <colorvalue id='bg-value'>#ff0000</colorvalue>
+        </colorbox>
+    </magicbox>
+
+    <button class='wand menu-btn' id='datatab-btn' mb="datatab">Data</button>
+    <magicbox mb="datatab" id="datatab-mb">
+        <button id="datatab-copy" title="Copy Data to Clipboard">Copy Data</button>
+        <button id="datatab-import" title="Paste Data from Clipboard [ctrl+v]">Import Data</button>
+        <input id="import-clipboard-data-input" style="opacity: 0; position: absolute; width: 0; height: 0;" value=""></button>
+    </magicbox>
+
+</body>
+</html>

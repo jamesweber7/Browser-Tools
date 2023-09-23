@@ -1,0 +1,276 @@
+
+:root {
+    --primary: #888;
+    --secondary: #ddd;
+    --hacker-green: #008800;
+    --hacker-green-dark: #006600;
+    --hacker-green-light: #009900;
+    --hacker-green-gray: #465e46;
+    --hacker-green-gray-dark: #2f3d2f;
+    --hacker-gray:#444;
+}
+
+body {
+    width:400px;
+    /* height: 400px; */
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+button {
+    background-color: transparent;
+    color: var(--secondary);
+    border: var(--secondary) 2px solid;
+    display: block;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(110%);
+}
+
+.menu-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+textarea {
+    text-decoration: none;
+    resize: none;
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+magicbox, magicbox.closed {
+    display: none;
+}
+
+magicbox.open {
+    display: block;
+}
+
+.code {
+    font-family: 'consolas';
+    font-size: 14px;
+    color: var(--hacker-green);
+}
+
+.faux-console {
+    border: 2px solid #111;
+    border-radius: 2px;
+    padding: 4px;
+    background-color: var(--hacker-gray);
+}
+
+.code-input {
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid black;
+    width: 95%;
+}
+
+.code-btn {
+    background-color: transparent;
+    color: var(--hacker-green);
+    border: 1px solid;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.code-btn:hover {
+    transform: none;
+}
+
+err {
+    display: block;
+    color: red;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: auto;
+    height: 7px;
+    border-radius: 5px;
+    background: linear-gradient(to right, hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(360,100%,50%));
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    border: 2px black solid;
+    border-radius: 50%;
+    background: transparent;
+    transition: transform 0.2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(125%);
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+colorbox {
+    display: inline-block;
+}
+
+colorvalue {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.cool-style-mb {
+    display: block;
+    width: auto;
+    background-color: #ddd;
+}
+
+#cool-style-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#cool-style-wand {
+    margin-top: -5px;
+}
+
+listpad {
+    display: inline-block;
+    width: 100%;
+}
+
+listpad * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.listpad-delete {
+    display: inline-block;
+    vertical-align: top;
+}
+
+listbox {
+    display: inline-block;
+    margin: 0;
+    margin-left: 3px;
+    width: calc(100% - 40px);
+    vertical-align: top;
+}
+
+listbox * {
+    display: block;
+    outline: none;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+listpad input::placeholder, listpad textarea::placeholder { 
+    color: var(--secondary);
+    opacity: 1;
+}
+
+listpad textarea {
+    min-height: 28px;
+    font-family: Helvetica;
+}
+
+listpad input {
+    font-size: 16px;
+}
+
+displaybox {
+    border-color: var(--secondary);
+    width: calc(100% - 4px);
+    padding: 4px;
+}
+
+displaybox * {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+displaybox textbox {
+    font-size: 18px;
+    color: blue;
+}
+
+.scraperpad listbox button {
+    display: inline-block;
+    width: fit-content;
+    margin: 4px;
+    padding: 4px;
+}
+
+.symbol-btn {
+    border: none;
+    font-size: 20px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.symbol-btn:hover {
+    transform: rotate(720deg);
+}
+
+button.shift-right {
+    transition: 1s ease-in-out;
+    color: darkred;
+    border-color: darkred;
+    transform: translateX(300px);
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 100%;
+}
+
+.opacity-0, .opacity-100 {
+    transition: opacity 1s ease-in-out;
+}
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--hacker-green-gray-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--hacker-green-dark);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hacker-green);
+}
+
+#calculator-output {
+  white-space: pre;
+}
