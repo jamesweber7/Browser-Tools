@@ -154,20 +154,24 @@ class Calculator extends StaticComponent {
     static listFunction(functionText) {
         if (functionText.includes('*')) {
             this.displaySolution(
-` - binomialpmf
+` - sum Σf(x)
+ - derivative f'(x)
+ - integral ∫f'(x)dx
+ - inverse f⁻¹(x)
+ - factorial x!
+ - permutation ₙ𝑃ᵣ
+ - combination ₙ𝐶ᵣ
+ - prob p(x)=𝑷(𝑿=x) (use for discrete functions)
+ - discreteMean μ
+ - discreteVariance 𝑽(x) = σ²
+ - discreteDeviation σ
+ - binomialpmf
  - binomialcmf
  - poissonpmf
  - poissoncmf
- - p
- - mean
- - variance
- - deviation
- - sum
- - derivative
- - integral
- - continuousMean
- - continuousVariance
- - continuousDeviation
+ - continuousMean μ
+ - continuousVariance 𝑽(x) = σ²
+ - continuousDeviation σ
  - continuouscdf
  - continuousUniformpdf
  - continuousUniformcdf
@@ -179,10 +183,10 @@ class Calculator extends StaticComponent {
  - standardizeNormal
  - exponentialpdf
  - exponentialcdf
- - exponentialDeviation
+ - exponentialMean
  - exponentialVariance
  - exponentialDeviation
- - IInf`
+ - IInf ∞`
             );
         }
         if (functionText.includes('binomialpmf')) {
@@ -221,29 +225,29 @@ OR params: λ*𝑻, x`
         }
         if (functionText.includes('prob')) {
             this.displaySolution(
-                `create probability :
+                `create probability (to use with other discrete functions) :
 params: x, p(x)`
             );
             return;
         }
-        if (functionText.includes('mean')) {
+        if (functionText.includes('discreteMean')) {
             this.displaySolution(
                 `discrete mean function :
 μ = 𝑬(𝑿) = ∀ₓΣ x∙p(x)
-params: [] probabilities`
+params: [probability] (use prob to create a probability)`
             );
             return;
         }
-        if (functionText.includes('variance')) {
+        if (functionText.includes('discreteVariance')) {
             this.displaySolution(
                 `discrete variance function :
 𝑽(x) = σ² = 𝑬(𝑿²) - μ = 𝑬(𝑿²) - 𝑬(𝑿)
 𝑽(x) = ∀ₓΣ x²∙p(x) - ∀ₓΣ x∙p(x) = ∀ₓΣ (x²-x)∙p(x)
-params: [] probabilities`
+params: [probability] (use prob to create a probability)`
             );
             return;
         }
-        if (functionText.includes('deviation')) {
+        if (functionText.includes('discreteDeviation')) {
             this.displaySolution(
                 `standard deviation :
              ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
@@ -281,6 +285,40 @@ params: 𝑓(x), x`
             a
 not exact: using 𝑑𝑥=2⁻²⁴
 params: 𝑓(x), a, b`
+            );
+            return;
+        }
+        if (functionText.includes('inverse')) {
+            this.displaySolution(
+                `inverse:
+f⁻¹(C) = x ∈ [a,b] s.t. f(f⁻¹(C)) = C
+params: f(x), C, a=-∞, b=+∞`
+            );
+            return;
+        }
+        if (functionText.includes('factorial')) {
+            this.displaySolution(
+                `factorial:
+x! = x∙(x-1)∙...∙1
+params: x`
+            );
+            return;
+        }
+        if (functionText.includes('permutation')) {
+            this.displaySolution(
+                `permutation:
+      __n!__
+ₙ𝑃ᵣ = (n-r)!
+params: n, r`
+            );
+            return;
+        }
+        if (functionText.includes('combination')) {
+            this.displaySolution(
+                `combination:
+      ___n!___
+ₙ𝐶ᵣ = (n-r)!r!
+params: n, r`
             );
             return;
         }
@@ -423,7 +461,7 @@ params: λ, x`
             );
             return;
         }
-        if (functionText.includes('exponentialDeviation')) {
+        if (functionText.includes('exponentialMean')) {
             this.displaySolution(
                 `exponential mean:
 μ = 1 / λ
@@ -472,6 +510,10 @@ just gives more accurate integrals`
         equation = replaceCalculatorFunction(equation, 'integral(');
         equation = replaceCalculatorFunction(equation, 'midpointRiemann(');
         equation = replaceCalculatorFunction(equation, 'leftRiemann(');
+        equation = replaceCalculatorFunction(equation, 'inverse(', 'inverseConstant(');
+        equation = replaceCalculatorFunction(equation, 'factorial(');
+        equation = replaceCalculatorFunction(equation, 'permutation(');
+        equation = replaceCalculatorFunction(equation, 'combination(');
         equation = replaceCalculatorFunction(equation, 'continuousMean(');
         equation = replaceCalculatorFunction(equation, 'continuousVariance(');
         equation = replaceCalculatorFunction(equation, 'continuousDeviation(');
@@ -655,9 +697,8 @@ just gives more accurate integrals`
     // returns random match if f(x) = target for multiple x values between a and b
     static inverseConstant(funct, target=0, a=-this.IntegrationInfinity, b=this.IntegrationInfinity, closest=NaN, calls=2**10) {
         if (calls <= 0) {
-            console.log('OOF RAN OUTTA CALLLS SOWWYZ');
-            console.log('HERES UR BOUNDWIES IF U ARE CUWIOUS');
-            console.log(a, b);
+            console.log('Used maximum number of calls');
+            console.log(`Boundaries: [${a}, ${b}]`);
             return closest;
         }
 
@@ -669,7 +710,8 @@ just gives more accurate integrals`
         let guess;
         // if target is between fOfA and fOfB
         if (this.between(target, fOfA, fOfB)) {
-            guess = this.map(target, fOfA, fOfB, a, b);
+            // guess = this.map(target, fOfA, fOfB, a, b);
+            guess = a + (b - a) / 2;
         }
         // if target is not between fOfA and fOfB
         else {
@@ -681,25 +723,22 @@ just gives more accurate integrals`
         let result = funct(guess);
 
         if (result === target) {
-            console.log('CONGWATZUWATIONS U GOT IT AN D U EVEN HAD');
-            console.log(calls + ' CAWWS VEFT');
             return guess;
         }
 
         let epsilon = Math.abs(target - result);
-        if (epsilon < funct(closest) || isNaN(closest)) {
-            console.log('NEW CLOSEST; YOU ARE ', epsilon, ' CLOSE:')
-            console.log(`x=${guess}, y=${result}, target=${target}`);
+        let closest_epsilon = Math.abs(target - funct(closest));
+        if (epsilon < closest_epsilon || isNaN(closest)) {
             closest = guess;
         }
 
         // if f(guess) between [f(a), target]
         if (this.between(result, fOfA, target)) {
-            b = guess;
-        }
-        // if target between [guess, b]
-        else {
             a = guess;
+        }
+        // if f(guess) between [target, f(b)]
+        else {
+            b = guess;
         }
         return this.inverseConstant(funct, target, a, b, closest, calls - 1);
     }
