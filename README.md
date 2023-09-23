@@ -5,7 +5,7 @@ This is an extension I use all the time to help me improve my web browsing exper
 ## Set up
 Take the same steps as shown in 2:27-3:10 in this [video](https://www.youtube.com/watch?v=ZM0b95lquso&t=147).
 
-After that, you should copy the data from [default_data.txt](/default_data.txt) and import it to the extension pop up by clicking Data→Import Data then pasting your clipboard (Ctrl+v on Windows or Command+v on Mac). The default data
+After that, you should copy the data from [default_data.txt](/default_data.txt) and import it to the extension pop up by clicking Data→Import Data then pasting your clipboard (Ctrl+v on Windows or Command+v on Mac). The default data includes data for many of the Sites and Scrapers I use, and should have good examples for you if you intend to make your own.
 
 ## Features
 
@@ -83,4 +83,4 @@ Note on importing data: I'm not 100% confident in the import function working co
 
 The import function is supposed to work by combining your existing data with the imported data, but I made it dynamically so I don't need to change the algorithm whenever I add a new data structure, which leaves room for unforeseen issues. Import at your own risk.
 
-Happy Browsing!
+### Happy Browsing!
