@@ -39,8 +39,6 @@ Flip the card over, and let it make your decisions for you.
 
 ### Calculator:
 
-Note: this is using an old link for the Weber-84, but this should be fixed very soon. 
-
 Use the Weber-84 Graphing Calculator, or use one of many functions for probability and calculus. 
 
 The functions include:

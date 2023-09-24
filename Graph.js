@@ -9,7 +9,7 @@ class Graph extends StaticComponent {
 
     static setupDocumentElement() {
         this.button().addEventListener('click', () => {
-            this.documentElement().src = 'https://weber-84.herokuapp.com/';
+            this.documentElement().src = 'https://elaborate-pegasus-3533db.netlify.app/';
         }, {once:true});        
     }
 }
