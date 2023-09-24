@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: auto;
+  position: absolute;
+  color: #410400;
+  background: white;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover {
+  background: #dfdfdf;
+}
+
+button:active {
+  background: #eee;
+}
